@@ -3,28 +3,26 @@
  * Copyright © 2016 Manuel Gonzalez Villegas. All rights reserved.
  */
 
-function getIconSizesMap() {
-	return [
-		{"name": "Itunes",				"size": 1024},
-		{"name": "Icon-Small",			"size": 29	},
-		{"name": "Icon-Small@2x",		"size": 58	},
-		{"name": "Icon-Small@3x",		"size": 87	},
-		{"name": "Icon-Small-40",		"size": 40	},
-	 	{"name": "Icon-Small-40@2x",	"size": 80	},
-		{"name": "Icon-Small-40@3x",	"size": 120	},
-		{"name": "Icon-Small-50",		"size": 50	},
-		{"name": "Icon-Small-50@2x",	"size": 100	},
-		{"name": "Icon",				"size": 57	},
-		{"name": "Icon@2x",				"size": 114	},
-		{"name": "Icon-60@2x",			"size": 120	},
-		{"name": "Icon-60@3x",			"size": 180	},
-		{"name": "Icon-72",				"size": 72	},
-		{"name": "Icon-72@2x",			"size": 144	},
-		{"name": "Icon-76",				"size": 76	},
-		{"name": "Icon-76@2x",			"size": 152	},
-		{"name": "Icon-83.5@2x",		"size": 167	}
-	];
-}
+var iconSizesMap = [
+	{"name": "Itunes",				"size": 1024},
+	{"name": "Icon-Small",			"size": 29	},
+	{"name": "Icon-Small@2x",		"size": 58	},
+	{"name": "Icon-Small@3x",		"size": 87	},
+	{"name": "Icon-Small-40",		"size": 40	},
+ 	{"name": "Icon-Small-40@2x",	"size": 80	},
+	{"name": "Icon-Small-40@3x",	"size": 120	},
+	{"name": "Icon-Small-50",		"size": 50	},
+	{"name": "Icon-Small-50@2x",	"size": 100	},
+	{"name": "Icon",				"size": 57	},
+	{"name": "Icon@2x",				"size": 114	},
+	{"name": "Icon-60@2x",			"size": 120	},
+	{"name": "Icon-60@3x",			"size": 180	},
+	{"name": "Icon-72",				"size": 72	},
+	{"name": "Icon-72@2x",			"size": 144	},
+	{"name": "Icon-76",				"size": 76	},
+	{"name": "Icon-76@2x",			"size": 152	},
+	{"name": "Icon-83.5@2x",		"size": 167	}
+];
 
 /**
 * Never use else. This is the reason to use multiple return
@@ -63,18 +61,16 @@ function getExportOptions() {
 }
 
 /**
-* Iterate the map getIconSizesMap() to generate each icon size and store it on choosed destination folder
+* Iterate the map iconSizesMap to generate each icon size and store it on choosed destination folder
 */
 function generateIcons(doc, destinationFolder) {
 	// To restore to the initial state after each resize
 	var initialState = doc.activeHistoryState;
 
-	// Get the icon sizes map with each name
-	var iconSizes = getIconSizesMap();
 	var icon;
-	for (i = 0; i < iconSizes.length; i++) {
+	for (i = 0; i < iconSizesMap.length; i++) {
 		// Get current icon
-		icon = iconSizes[i];
+		icon = iconSizesMap[i];
 
 		// Use method BICUBICSHARPER
 		// Resample see: http://jongware.mit.edu/pscs5js_html/psjscs5/pe_ResampleMethod.html
